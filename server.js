@@ -69,9 +69,15 @@ app.route("/").get(async (req, res) => {
     percentage[index] = Math.trunc(percentage[index])
   }
 
+  let topTenResultOnly = []
+  let topKeys= []
+  for ( index = 0; index < 10; index++) {
+    topTenResultOnly[index] = topTenResult[index] 
+     topKeys[index]  = keys[index]
+  }
   // rendering home page   
   res.status(200).json({
-    records : topTenResult ,keys ,average , difference ,percentage
+    records : topTenResultOnly ,keys : topKeys,average , difference ,percentage
   })
 
 })
