@@ -2,7 +2,7 @@
   "name": "hodlinfo",
   "version": "1.0.0",
   "description": "fetching top 10 results from given api and showing on frontend side",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "engines": {
     "node": ">=14.20.1"
