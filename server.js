@@ -15,7 +15,8 @@ const app = express();
 // Using Middlewares
 app.use(cors(
   {
-      origin: [process.env.FRONT_URL]
+      origin: "*",
+      methods: ["GET"]
   }
 ))
 
@@ -25,12 +26,11 @@ app.use(cors(
 app.route("/").get(async (req, res) => {
   
   // fetching data from the given api
-  let data
-  await axios.get("https://api.wazirx.com/api/v2/tickers/")
-    .then((res) => {
-    data = res.data
-    }).catch(
-      err => console.log(err)
+  let {data} = await axios.get("https://api.wazirx.com/api/v2/tickers/" , {
+    headers:{
+      Accept : "application/json"
+    } 
+  }
     )
 
   // converting data into array format
